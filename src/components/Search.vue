@@ -1,7 +1,9 @@
 <script>
+    import {store} from '../store.js';
     export default {
         data() {
             return {
+                store
             }
         }
     }
@@ -9,31 +11,51 @@
 
 
 <template>
-    <div class="select-style">
-        <div>
-            seleziona archetipo
+    <div class="container">
+        <div class="select-style">
+            <div>
+                seleziona archetipo
+            </div>
+            <label for="">
+                <select v-model="store.selectedCard" class="selezioni">
+                    <option class="opzioni" value="Alien">Alien</option>
+                    <option class="opzioni" value="Infernoble Arms">Infernoble Arms</option>
+                    <option class="opzioni" value="Noble Knight">Noble Knight</option>
+                    <option class="opzioni" value="Melodious">Melodious</option>
+                    <option class="opzioni" value="Archfiend">Archfiend</option>
+                </select>
+            </label>
+            <div>
+                Hai trovato: {{ store.cardsLength }}
+            </div>
+            <div>
+                <input v-model="store.searchCard" type="text" name="" value="">
+            </div>
+            <div>
+                <button @click="store.cerca()" type="button">CERCA</button>
+            </div>
         </div>
-        <label for="">
-            <select class="selezioni">
-                <option class="opzioni" value="">1</option>
-                <option class="opzioni" value="">2</option>
-                <option class="opzioni" value="">3</option>
-                <option class="opzioni" value="">4</option>
-                <option class="opzioni" value="">5</option>
-            </select>
-        </label>
     </div>
 </template>
 
 <style scoped>
     .selezioni {
         width: 100px;
-        height: 100%;
         text-align: center;
-
     }
 
     .select-style {
-        height: 50px;
+        height: 100%;
+        gap: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .container {
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 </style>
