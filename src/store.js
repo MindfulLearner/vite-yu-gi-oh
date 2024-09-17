@@ -36,9 +36,7 @@ export const store = reactive({
                         archetype: card.archetype,
                         image: card.card_images[0].image_url 
                     }));
-                    console.table(this.cards);
                     this.updateCardsLength(this.cards);
-                    console.log(this.cardsLength);
                 } else {
                     console.warn('niente carte di questo tipo');
                 }

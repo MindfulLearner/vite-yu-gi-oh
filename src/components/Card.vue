@@ -14,7 +14,6 @@
     }
 </script>
 
-
 <template>
     <div class="card-container">
         <div class="img-container">

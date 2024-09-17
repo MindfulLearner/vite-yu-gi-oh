@@ -12,20 +12,16 @@
             this.fetchCard()
         },
         methods: {
-
             async fetchCard() {
                 try {
                     const url = 'https://db.ygoprodeck.com/api/v7/cardinfo.php?num=100&offset=0';
                     const response = await axios.get(url);
-                    console.log(response)
                     this.store.cards = response.data.data.map(card => ({
                         name: card.name,
                         archetype: card.archetype,
                         image: card.card_images[0].image_url
                     }));
-                    console.table(this.store.cards);
                     this.store.updateCardsLength(this.store.cards);
-                    console.log(this.store.cardsLength);
                 } catch (error) {
                     console.error('non riuscito a caricare', error);
                 }
